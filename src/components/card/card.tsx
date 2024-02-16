@@ -7,7 +7,7 @@ const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElemen
   ({ className, ...props }, ref) => (
     <section
       ref={ref}
-      className={cn("flex flex-col bg-white md:rounded-[5px]", className)}
+      className={cn("flex flex-col overflow-hidden bg-white pb-[50px]", className)}
       {...props}
     />
   ),
@@ -19,7 +19,7 @@ const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDiv
     <div
       ref={ref}
       className={cn(
-        "relative flex flex-col items-center gap-4 space-y-1 bg-salmon px-6 pb-[28px] pt-4 sm:flex-row sm:gap-[20px] sm:px-10 sm:pb-6 sm:pt-8",
+        "relative flex flex-col items-center gap-4 space-y-1 bg-salmon px-6 pb-[28px] pt-4 sm:px-10 sm:pb-6 sm:pt-8 md:flex-row md:gap-[20px]",
         className,
       )}
       {...props}
@@ -36,7 +36,10 @@ const CardTitle = React.forwardRef<
   return (
     <Comp
       ref={ref}
-      className={cn("text-2xl font-semibold leading-[28.8px] text-midnight-purple", className)}
+      className={cn(
+        "text-2xl font-semibold leading-[28.8px] text-midnight-purple md:text-[32px] md:leading-[38.4px]",
+        className,
+      )}
       {...props}
     />
   );
@@ -49,7 +52,7 @@ const CardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("text-center text-base font-medium leading-[20px] text-purple-gray", className)}
+    className={cn("text-base font-medium leading-[20px] text-purple-gray", className)}
     {...props}
   />
 ));

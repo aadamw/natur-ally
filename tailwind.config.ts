@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 const config: Config = {
   content: ["./src/**/*.{ts,tsx}"],
@@ -7,6 +8,7 @@ const config: Config = {
       colors: {
         salmon: "hsl(var(--salmon))",
         "blue-gray": {
+          50: "hsl(var(--blue-gray-50))",
           900: "hsl(var(--blue-gray-900))",
         },
         "purple-gray": "hsl(var(--purple-gray))",
@@ -24,6 +26,10 @@ const config: Config = {
           active: "hsl(var(--midnight-purple-active))",
         },
         background: "hsl(var(--background))",
+      },
+      fontFamily: {
+        sans: ["var(--font-sans)", ...fontFamily.sans],
+        rubik: ["var(--font-rubik)", ...fontFamily.sans],
       },
     },
   },

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Rubik, Work_Sans } from "next/font/google";
 
 import "@/styles/globals.css";
 
-import { Header } from "@/features/shared/ui/header";
+import { Header } from "@/components/header";
 import { cn } from "@/utils/cn";
 
-const inter = Inter({ subsets: ["latin"] });
+const sans = Work_Sans({ subsets: ["latin"], variable: "--font-sans" });
+const rubik = Rubik({ subsets: ["latin"], variable: "--font-rubik" });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,8 +23,9 @@ export default function RootLayout(props: RootLayoutProps) {
     <html lang="en">
       <body
         className={cn(
-          inter.className,
-          "min-h-screen overscroll-none bg-background text-blue-gray-900 antialiased",
+          sans.variable,
+          rubik.variable,
+          "flex min-h-screen flex-col overscroll-none bg-background font-sans text-blue-gray-900 antialiased",
         )}
       >
         <Header />
