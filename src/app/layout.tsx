@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 
 import "@/styles/globals.css";
 
+import { Header } from "@/features/shared/ui/header";
 import { cn } from "@/utils/cn";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -25,6 +26,7 @@ export default function RootLayout(props: RootLayoutProps) {
           "min-h-screen overscroll-none bg-background text-blue-gray-900 antialiased",
         )}
       >
+        <Header />
         {props.children}
       </body>
     </html>
