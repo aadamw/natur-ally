@@ -15,5 +15,9 @@
     --midnight-purple: 248 26% 32%;
     --midnight-purple-hover: 248 22% 47%;
     --midnight-purple-active: 248 41% 20%;
+
+    --light-purple: 248, 78%, 81%, 0;
+    --light-purple-hover: 248, 78%, 81%, 0.1;
+    --light-purple-active: 248, 78%, 81%, 0.25;
   }
 }
