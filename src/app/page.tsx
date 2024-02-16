@@ -10,12 +10,11 @@ import { GivingIcon, XIcon } from "@/components/icons";
 import { formatAmount, getDonationAmount } from "@/utils/money";
 
 export default function Home() {
-  const todayMonth = React.useRef(new Date()).current;
-  const nextMonth = React.useRef(addMonths(new Date(), 1)).current;
+  const currentDate = React.useRef(new Date()).current;
   const [inputValue, setInputValue] = React.useState<string>("");
-  const [date, setDate] = React.useState<Date>(nextMonth);
+  const [date, setDate] = React.useState<Date>(addMonths(new Date(), 1));
 
-  const monthsBetweenDates = differenceInMonths(date, todayMonth);
+  const monthsBetweenDates = differenceInMonths(date, currentDate);
 
   return (
     <main className="flex h-full flex-1 flex-col md:mx-auto md:mt-16 md:flex-none">
@@ -54,8 +53,10 @@ export default function Home() {
             />
           </form>
           <div className="flex flex-col rounded-[5px] border border-blue-gray-50 md:border-none">
-            <div className="grid grid-cols-[minmax(0,1fr),minmax(0,3fr)] items-center justify-between px-4 py-6">
-              <span className="font-medium leading-[19.2px] text-blue-gray-900">Total amount:</span>
+            <div className="grid grid-cols-[minmax(0,1fr),minmax(0,3fr)] items-center justify-between px-4 py-6 md:grid-cols-[minmax(0,1fr),minmax(0,2fr)]">
+              <span className="font-medium leading-[19.2px] text-blue-gray-900 md:text-xl md:leading-6">
+                Total amount:
+              </span>
               <span className="truncate text-right text-[32px] font-bold leading-[28.8px] text-purple-gray">
                 ${formatAmount(getDonationAmount(parseFloat(inputValue), monthsBetweenDates))}
               </span>
