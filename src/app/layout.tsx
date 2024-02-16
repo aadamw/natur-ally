@@ -19,7 +19,12 @@ type RootLayoutProps = {
 export default function RootLayout(props: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className={cn(inter.className, "min-h-screen overscroll-none antialiased")}>
+      <body
+        className={cn(
+          inter.className,
+          "min-h-screen overscroll-none bg-background text-blue-gray-900 antialiased",
+        )}
+      >
         {props.children}
       </body>
     </html>

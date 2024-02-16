@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 200 38% 97%;
+
+    --salmon: 18 100% 90%;
+
+    --blue-gray-900: 204 25% 16%;
+    --purple-gray: 234 16% 42%;
+    --midnight-gray: 206 21% 38%;
+
+    --midnight-purple: 248 26% 32%;
+    --midnight-purple-hover: 248 22% 47%;
+    --midnight-purple-active: 248 41% 20%;
+  }
+}
