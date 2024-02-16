@@ -9,10 +9,11 @@ import { ChevronRight, DollarIcon } from "../icons";
 
 type CurrencyInputProps = React.ComponentProps<typeof ReactCurrencyInput> & {
   leadingIcon?: React.ReactNode;
+  onValueChange: (value: string) => void;
 };
 
 const CurrencyInput = React.forwardRef<HTMLInputElement, CurrencyInputProps>(
-  ({ className, type, leadingIcon, ...props }, ref) => {
+  ({ className, type, leadingIcon, onValueChange, ...props }, ref) => {
     return (
       <div
         className={cn(
@@ -21,11 +22,12 @@ const CurrencyInput = React.forwardRef<HTMLInputElement, CurrencyInputProps>(
         )}
       >
         <div className="flex h-6 w-6 items-center justify-center">
-          <DollarIcon />
+          <DollarIcon aria-label="Dollar sign" />
         </div>
 
         <ReactCurrencyInput
           type={type}
+          onValueChange={(value) => onValueChange(value)}
           className={cn(
             "h-[28px] w-full font-rubik outline-none",
             "placeholder:text-2xl placeholder:font-medium placeholder:leading-7 placeholder:text-black/20",
@@ -63,6 +65,7 @@ const DateInput = React.forwardRef<HTMLDivElement, DateInputProps>(
 
     return (
       <div
+        aria-label="Date Input"
         ref={ref}
         className={cn(
           "flex h-[60px] items-center justify-between gap-2 rounded-[4px] border border-blue-gray-50 p-4 pl-2  focus-within:border-midnight-purple",

@@ -10,6 +10,8 @@ import { GivingIcon, XIcon } from "@/components/icons";
 import { formatAmount, getDonationAmount } from "@/utils/money";
 
 export default function Home() {
+  const titleId = React.useId();
+  const descriptionId = React.useId();
   const currentDate = React.useRef(new Date()).current;
   const [inputValue, setInputValue] = React.useState<string>("");
   const [date, setDate] = React.useState<Date>(addMonths(new Date(), 1));
@@ -18,7 +20,11 @@ export default function Home() {
 
   return (
     <main className="flex h-full flex-1 flex-col md:mx-auto md:mt-16 md:flex-none">
-      <Card className="h-full w-full flex-1 flex-grow md:w-[600px] md:rounded-[5px]">
+      <Card
+        aria-labelledby={titleId}
+        aria-describedby={descriptionId}
+        className="h-full w-full flex-1 flex-grow md:w-[600px] md:rounded-[5px]"
+      >
         <button
           type="button"
           aria-label="Close window"
@@ -29,10 +35,10 @@ export default function Home() {
         <CardHeader>
           <GivingIcon />
           <div className="flex flex-col justify-center gap-1">
-            <CardTitle asChild>
+            <CardTitle id={titleId} asChild>
               <h1>The giving block</h1>
             </CardTitle>
-            <CardDescription>Set up your donation goal!</CardDescription>
+            <CardDescription id={descriptionId}>Set up your donation goal!</CardDescription>
           </div>
         </CardHeader>
         <CardContent>
