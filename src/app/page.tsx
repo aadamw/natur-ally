@@ -14,7 +14,7 @@ export default function Home() {
   const descriptionId = React.useId();
   const currentDate = React.useRef(new Date()).current;
   const [inputValue, setInputValue] = React.useState<string>("");
-  const [date, setDate] = React.useState<Date>(addMonths(new Date(), 1));
+  const [date, setDate] = React.useState<Date>(addMonths(currentDate, 1));
 
   const monthsBetweenDates = differenceInMonths(date, currentDate);
 
@@ -42,7 +42,7 @@ export default function Home() {
           </div>
         </CardHeader>
         <CardContent>
-          <form className="grid gap-4 md:grid-cols-2">
+          <form className="grid gap-4 md:grid-cols-2" aria-label="Donation form">
             <CurrencyField
               label="I can donate"
               placeholder="0.00"
@@ -63,13 +63,22 @@ export default function Home() {
               <span className="font-medium leading-[19.2px] text-blue-gray-900 md:text-xl md:leading-6">
                 Total amount:
               </span>
-              <span className="truncate text-right text-[32px] font-bold leading-[28.8px] text-purple-gray">
+              <span
+                className="truncate text-right text-[32px] font-bold leading-[28.8px] text-purple-gray"
+                aria-label="Total donation amount"
+                data-testid="total-donation-amount"
+              >
                 ${formatAmount(getDonationAmount(parseFloat(inputValue), monthsBetweenDates))}
               </span>
             </div>
             <div className="rounded-t-[5px] bg-blue-gray-50 px-4 py-6 text-center text-xs leading-[16.8px] text-blue-gray-900 md:rounded-[5px]">
-              You will be sending <strong>${formatAmount(parseFloat(inputValue))}</strong> every
-              month until <strong>{format(date, "MMMM yyyy")}.</strong> Thank you!
+              You will be sending{" "}
+              <strong data-testid="monthly-donation-amount">
+                ${formatAmount(parseFloat(inputValue))}
+              </strong>{" "}
+              every month until{" "}
+              <strong data-testid="donation-timeline">{format(date, "MMMM yyyy")}.</strong> Thank
+              you!
             </div>
           </div>
           <div className="p-2 md:flex md:gap-[27px]">

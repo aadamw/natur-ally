@@ -83,8 +83,12 @@ const DateInput = React.forwardRef<HTMLDivElement, DateInputProps>(
           <ChevronRight className="rotate-180" />
         </button>
         <div className="flex flex-col text-center text-purple-gray">
-          <span className="text-base font-medium leading-[20px]">{format(value, "MMMM")}</span>
-          <span className="text-xs ">{format(value, "yyyy")}</span>
+          <span className="text-base font-medium leading-[20px]" data-testid="selected-month">
+            {format(value, "MMMM")}
+          </span>
+          <span className="text-xs" data-testid="selected-year">
+            {format(value, "yyyy")}
+          </span>
         </div>
         <button
           type="button"
