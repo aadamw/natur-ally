@@ -10,9 +10,9 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-midnight-purple text-white hover:[@media(pointer:fine)]:bg-midnight-purple-hover active:bg-midnight-purple-active",
+          "bg-midnight-purple text-white active:bg-midnight-purple-active hover:bg-midnight-purple-hover ",
         outline:
-          "text-purple-gray border border-purple-gray bg-light-purple hover:[@media(pointer:fine)]:bg-light-purple-hover active:bg-light-purple-active",
+          "text-purple-gray border border-purple-gray bg-light-purple hover:bg-light-purple-hover active:bg-light-purple-active",
       },
       size: {
         default: "h-12 px-6 py-4 text-base w-full h-[52px]",

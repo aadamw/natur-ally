@@ -27,8 +27,9 @@ export default function Home() {
       >
         <button
           type="button"
-          aria-label="Close window"
-          className="absolute right-6 top-4 z-50 md:hidden"
+          aria-label="Close donation window"
+          className="absolute right-6 top-4 z-50 rounded-[10px] p-2 active:bg-[#F2D0C1] md:hidden
+          "
         >
           <XIcon />
         </button>
@@ -64,7 +65,7 @@ export default function Home() {
                 Total amount:
               </span>
               <span
-                className="truncate text-right text-[32px] font-bold leading-[28.8px] text-purple-gray"
+                className="font-inter truncate text-right text-[32px] font-bold leading-[28.8px] text-purple-gray"
                 aria-label="Total donation amount"
                 data-testid="total-donation-amount"
               >

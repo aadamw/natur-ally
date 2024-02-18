@@ -29,6 +29,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
+        inter: ["var(--font-inter)", ...fontFamily.sans],
         rubik: ["var(--font-rubik)", ...fontFamily.sans],
       },
     },

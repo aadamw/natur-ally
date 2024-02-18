@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Rubik, Work_Sans } from "next/font/google";
+import { Inter, Rubik, Work_Sans } from "next/font/google";
 
 import "@/styles/globals.css";
 
 import { Header } from "@/components/header";
 import { cn } from "@/utils/cn";
 
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const sans = Work_Sans({ subsets: ["latin"], variable: "--font-sans" });
 const rubik = Rubik({ subsets: ["latin"], variable: "--font-rubik" });
 
@@ -23,6 +24,7 @@ export default function RootLayout(props: RootLayoutProps) {
     <html lang="en">
       <body
         className={cn(
+          inter.variable,
           sans.variable,
           rubik.variable,
           "flex min-h-screen flex-col overscroll-none bg-background font-sans text-blue-gray-900 antialiased",

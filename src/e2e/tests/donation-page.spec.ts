@@ -50,13 +50,13 @@ test.describe("Donation page", () => {
     const donationPage = new DonationPage(page);
 
     await donationPage.visitPage();
-    await donationPage.fillDonationAmountField("1000.00");
+    await donationPage.fillDonationAmountField("1000");
     await donationPage.increaseMothByOne();
     await donationPage.submitForm();
 
     const monthAfterIncrease = addMonths(nextMonthDate, 1);
-    await donationPage.validateTotalDonationAmount("$2,000.00");
-    await donationPage.validateMonthlyDonationAmount("$1,000.00");
+    await donationPage.validateTotalDonationAmount("$2,000");
+    await donationPage.validateMonthlyDonationAmount("$1,000");
     await donationPage.validateDonationTimeline(format(monthAfterIncrease, "MMMM yyyy."));
   });
 });
